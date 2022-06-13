@@ -1,0 +1,53 @@
+version: "3.8"
+services:
+  frontend:
+    image: tickets_frontend
+    build: frontend
+    volumes:
+      - ./frontend:/usr/src/app
+    ports: 
+      - 8080:8080
+    networks:
+      - tickets
+    environment:
+      VITE_HMR_PORT: 8080
+
+  backend:
+    image: tickets_backend
+    build: backend
+    volumes:
+      - ./backend:/usr/src/app
+    ports: 
+      - 8081:8081
+    networks:
+      - tickets
+    environment:
+      BACKEND_PORT: 8081
+      DB_HOST: database
+      DB_PORT: 3306
+      DB_USER: tickets
+      DB_PASSWORD: tickets
+      DB_DATABASE: tickets
+
+  database:
+    image: mysql:5.7
+    ports:
+        - "33061:3306"
+    command: --init-file /data/application/init.sql
+    volumes:
+        - ./database/init.sql:/data/application/init.sql
+        - db:/var/lib/mysql
+    networks:
+      - tickets
+    environment:
+        MYSQL_ROOT_USER: root
+        MYSQL_ROOT_PASSWORD: mlet
+        MYSQL_DATABASE: tickets
+        MYSQL_USER: tickets
+        MYSQL_PASSWORD: tickets
+
+networks:
+  tickets:
+
+volumes:
+  db:

@@ -1,0 +1,113 @@
+html {
+  font-size: 22px;
+  font-family: 'Helvetica Neue', Calibri, sans-serif;
+}
+
+@media (min-width: 500px) {
+  html {
+      font-size: 26px;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+      font-size: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+      font-size: 34px;
+  }
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+}
+
+main {
+  width: 70%;
+  background-color: rgb(233, 233, 233);
+  padding: 1rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 0.2rem;
+  }
+}
+
+aside {
+  width: 30%;
+  background-color: rgb(156, 156, 156);
+  padding: 1rem;
+}
+
+.events {
+  > div {
+    border: 0.2rem solid green;
+    margin-bottom: 1rem;
+    padding: 0.2rem;
+
+    h3 {
+      position: relative;
+      cursor: pointer;
+
+      span {
+        font-size: 0.8rem;
+        position: absolute;
+        right: 0.2rem;
+      }
+    }
+  }
+}
+
+.admin-form {
+  * {
+    width: 100%;
+  }
+}
+
+.event-details {
+  h1 {
+    position: relative;
+    border-bottom: 0.2rem solid green;
+
+    span {
+      position: absolute;
+      right: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  .event-body {
+    margin: 1rem 0 1rem 0.3rem;
+  }
+
+  .event-tickets {
+    div {
+      margin-bottom: 0.5rem;
+
+      h5 {
+        border-bottom: 0.1rem solid green;
+      }
+    }
+  }
+
+  .ticket-form {
+    margin: 1rem 0;
+
+    input, textarea, button {
+      width: 100%;
+    }
+  }
+
+  a {
+    font-style: italic;
+    cursor: pointer;
+  }
+}
